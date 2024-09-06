@@ -1,0 +1,6 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<Umbraco.Cms.Web.Common.PublishedModels.Linkss>>
+
+<div style="  display: flex;justify-content: center; ">
+    @await Html.GetBlockGridItemAreaHtmlAsync(Model.Areas.FirstOrDefault())
+
+</div>

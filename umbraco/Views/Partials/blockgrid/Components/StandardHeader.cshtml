@@ -1,0 +1,29 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<Umbraco.Cms.Web.Common.PublishedModels.StandardHeader>>
+
+<header>
+    <style>
+        .hi {
+            width: 100%;
+            height: 10px;
+            margin-bottom: 5px;
+        }
+
+        .h { 
+            margin-bottom: 0px;
+            margin-left:5%;
+        }
+    </style>
+    <h1 class="h">
+        @Model.Content.Title
+    </h1>
+    @if (Model.Content.Image != null)
+    {
+        <img class="masthead-avatar mb-5 hi" src="@Model.Content.Image.Url()" alt="@Model.Content.Image.GetAltText()" />
+    }
+    @if (!string.IsNullOrWhiteSpace(Model.Content.Subtitle))
+    {
+        <p class ="h">@Model.Content.Subtitle</p>
+    }
+
+</header>
+ 

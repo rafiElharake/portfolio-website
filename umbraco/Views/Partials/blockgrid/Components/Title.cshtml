@@ -1,0 +1,9 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<Umbraco.Cms.Web.Common.PublishedModels.Title>>
+@{
+    var textColorClass = Model.Content.Color != null ? "text-" + Model.Content.Color.Label.ToLower() : "text-secondary";
+}
+<header>
+    <h1 class=" @(textColorClass)" style="text-align:center; margin-bottom:0px; margin-top:1%;">
+        @Model.Content.Text
+	</h1>
+</header>

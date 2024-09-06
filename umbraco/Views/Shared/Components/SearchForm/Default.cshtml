@@ -1,0 +1,19 @@
+﻿@inherits UmbracoViewPage<SearchRequestModel>
+@using Umbraco.Cms.Web.Common.Views
+@using umbraco.Controllers.Surface
+@using umbraco.Models.Search
+
+<form method="get" action="@Umbraco.AssignedContentItem.Url()">
+    <div style="padding: 3%;">
+        <div class="col-6 col-12-xsmall">
+        <label for="query" aria-hidden="true">Search</label>
+        <input type="text" id="query" name="query" placeholder="Search term" value="@Model?.Query" />
+        </div>
+        <div style="padding-top: 3%;">
+            <button>Submit</button>
+        </div>
+    </div>
+
+
+</form>
+ 

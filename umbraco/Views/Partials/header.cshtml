@@ -1,0 +1,26 @@
+﻿@inherits UmbracoViewPage
+@{
+	var siteSettings = Model.GetSiteSettings();
+	if (siteSettings == null)
+	{
+		return;
+	}
+}
+<header id="header">
+	<div class="inner">
+
+		<!-- Logo -->
+		<a href="/" class="logo" style="margin-top: 0px;">
+			<span class="symbol"><img src="/images/logo.svg" alt="" /></span><span class="title">@siteSettings.SiteName</span>
+		</a>
+
+		<!-- Nav -->
+		<nav>
+			<ul>
+				<li><a href="#menu">Menu</a></li>
+			</ul>
+		</nav>
+
+	</div>
+
+</header>

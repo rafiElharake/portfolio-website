@@ -1,0 +1,23 @@
+﻿@using Slimsy.Extensions
+@inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<Umbraco.Cms.Web.Common.PublishedModels.ImageLink>>
+
+@{
+    if (Model?.Content?.Image  == null || Model?.Content?.Link == null) return;
+    var Request = Context.Request;
+    var location = new Uri($"{Request.Scheme}://{Request.Host}{Request.Path}{Request.QueryString}");
+
+    var url = location.AbsoluteUri;
+}
+ 
+@url
+<article class="style1">
+    <span class="image">
+        <img class="img-fluid lazyload" data-srcset="@Url.GetSrcSetUrls(Model.Content.Image, 400, 290)" src="@Model.Content.Image.GetCropUrl(40, 29, quality: 40)" alt="@Model.Content.Image.GetAltText()" width="400" height="290" sizes="auto" />
+    </span>
+    <a href="@Model.Content.Link.Url" target="@Model.Content.Link.Target" title="@Model.Content.Link.Name">
+        <h2>@Model.Content.Label</h2>
+        <div class="content">
+            <p>@Model.Content.Description</p>
+        </div>
+    </a>
+</article>

@@ -1,0 +1,13 @@
+﻿@inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<Umbraco.Cms.Web.Common.PublishedModels.Form>>
+<style>
+    .contact-section {
+        padding-right: 20px;
+        padding-left: 20px;
+        margin-left: 40px;
+    }
+</style>
+
+<section class="contact-section" id="contact">
+            <h2 style="margin-bottom:0px">Get in touch</h2>
+            @await Component.InvokeAsync("Contact") 
+        </section> 

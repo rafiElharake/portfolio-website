@@ -1,0 +1,13 @@
+﻿@inherits UmbracoViewPage
+@{
+	var siteSettings = Model.GetSiteSettings();
+	if (siteSettings is null) return;
+}
+<nav id="menu">
+	<h2>Menu</h2>
+
+        <ul>
+		@await Html.GetBlockGridHtmlAsync(siteSettings, "mainNavigation")
+        </ul>
+</nav>
+			

@@ -1,0 +1,62 @@
+﻿@inherits UmbracoViewPage<ContactViewModel>
+@using Umbraco.Cms.Web.Common.Views
+@using umbraco.Controllers.Surface
+@using umbraco.Models.ViewModels
+
+
+@{
+    bool submitted = bool.TryParse(TempData["ContactSuccess"]?.ToString() ?? string.Empty, out var success);
+}
+<style>
+    .text-danger {
+    color: red;
+}
+</style>
+@if (submitted)
+{
+    <div class="row">
+        <div class="col-12 text-center">
+            @if (success)
+            {
+                <p>@Umbraco.GetDictionaryValueOrDefault("ContactForm.SuccessMessage", "Thank you for your email. We will be in touch shortly.")</p>
+            }
+            else
+            {
+                <p>@Umbraco.GetDictionaryValueOrDefault("ContactForm.ErrorMessage", "There was a problem when submitting the form. Please try again later.")</p>
+            }
+        </div>
+    </div>
+}
+else
+{
+    using (Html.BeginUmbracoForm<ContactSurfaceController>("Submit", FormMethod.Post, new { @class = "text-left", role = "form" }))
+    { 
+        <div  >
+            <input asp-for="@Model.Name" class="form-control" id="name" type="text" placeholder="Full name" aria-label="Name" />
+            <label asp-for="@Model.Name"></label>
+            <span asp-validation-for="@Model.Name" class="text-danger"></span>
+        </div>
+        <!-- Email address input-->
+        <div >
+            <input asp-for="@Model.Email" class="form-control" id="name" type="text" placeholder="Email address" aria-label="Email" />
+            <label asp-for="@Model.Email"></label>
+            <span asp-validation-for="@Model.Email" class="text-danger"></span>
+        </div> 
+        <!-- Message input-->
+        <div >
+            <input asp-for="@Model.Message" class="form-control" id="name" type="text" placeholder="Message" aria-label="Message" />
+            <label asp-for="@Model.Message"></label>
+            <span asp-validation-for="@Model.Message" class="text-danger"></span>
+        </div>
+        <div class="form-check">
+            <input asp-for="@Model.Consent" class="form-check-input" type="checkbox">
+            <label asp-for="@Model.Consent" class="form-check-label">
+                I agree to the <a href="/privacy-policy/" class="text-dark font-weight-bolder">Privacy Policy</a>
+            </label>
+            <span asp-validation-for="@Model.Consent" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary btn-block btn-lg" type="submit">Send</button>
+        </div>
+    }
+}

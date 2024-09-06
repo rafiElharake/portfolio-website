@@ -1,0 +1,31 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels
+@using Umbraco.Cms.Core.Models.Blocks
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<Umbraco.Cms.Web.Common.PublishedModels.SocialLinks>>
+@using System.Diagnostics;
+ 
+<section class="social-section">
+    <h2>@Model.Content.Title</h2>
+    <ul class="icons">
+        @if (Model.Content?.Links?.Count > 0)
+        {
+            foreach (BlockListItem<Umbraco.Cms.Web.Common.PublishedModels.SocialLink> item in Model.Content.Links)
+            {
+                if (item.Content.Link is null || item.Content.Icon is null) continue;
+
+                var iconKey = item.Content.Icon.Key.ToString("N");
+
+                        <style>
+            .svg-@iconKey {
+                fill:@($"#{item.Content.IconColor.Color}");
+            }
+            .svg-@iconKey:hover, .svg-@iconKey:focus {
+                fill:@($"#{item.Content.InvertedIconColor.Color}");
+            }
+        </style>
+                <a class="icon brands style2 fa svg-@iconKey" href="@item.Content.Link.Url" title="@item.Content.Link.Name" target="@item.Content.Link.Target">
+                    <our-svg media-item="item.Content.Icon" class="svg-inline--fa fa-fw"></our-svg>
+                </a>
+            }
+        }
+    </ul>
+</section> 

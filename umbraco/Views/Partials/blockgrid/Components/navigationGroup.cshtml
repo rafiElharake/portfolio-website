@@ -1,0 +1,55 @@
+﻿@using umbraco;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<Umbraco.Cms.Web.Common.PublishedModels.NavigationGroup>>
+
+<style>
+    .dropbtn {
+        color: white; 
+    } 
+     
+    .dropdown-content {
+        display: none; 
+    }
+     
+        .dropdown-content a {
+            color: white; 
+        }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    } 
+</style>
+
+@if ((Model.Content.ChildLinks != null && Model.Content.ChildLinks.Any())
+   && (!string.IsNullOrWhiteSpace(Model.Content.Title) || Model.Content.Link != null))
+{
+    <li class="dropdown">
+        @if (Model.Content.Link != null)
+        {
+            <a class="dropbtn" target="@Model.Content.Link.Target" href="@Model.Content.Link.Url" id="@Model.Content.Key.ToString("N")">
+                @Model.Content.Link.Name  
+            </a>
+        }
+        else if (!string.IsNullOrWhiteSpace(Model.Content.Title))
+        {
+            <a class="dropbtn" href="#" id="@Model.Content.Key.ToString("N")">
+                @Model.Content.Title 
+            </a>
+        }
+
+        <!-- Dropdown content -->
+        <ul class="dropdown-content" aria-labelledby="@Model.Content.Key.ToString("N") ">
+            @foreach (var childLink in Model.Content.ChildLinks)
+            {
+                <li><a href="@childLink.Url">@childLink.Name</a></li>
+            }
+        </ul>
+    </li>
+}
+else if (@Model.Content.Link!=null)
+{
+    <li><a href="@Model.Content.Link.Url">@Model.Content.Link.Name </a></li>
+}
+else
+{
+    return;
+}

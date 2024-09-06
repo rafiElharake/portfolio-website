@@ -1,0 +1,9 @@
+﻿@inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<Umbraco.Cms.Web.Common.PublishedModels.Links>>
+
+ 
+<header style="text-align:center;">
+
+    <button style="margin: 10px 10px; text-align:center;" onclick="window.location.href='@Model.Content.Link.Url';">
+             @Model.Content.Label 
+            </button>
+</header>

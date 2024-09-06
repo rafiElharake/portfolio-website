@@ -1,0 +1,48 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Web.Common.PublishedModels;
+
+
+@{
+	Layout = null;
+}
+
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+    @await Html.PartialAsync("metaData")
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+      <noscript><link rel="stylesheet" href="/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+		@await Html.PartialAsync("header")
+		@RenderBody()
+		<!-- Footer-->
+		@await Html.PartialAsync("footer")
+        @await Html.PartialAsync("menu")
+</div>
+		<!-- Scripts -->
+    <script src="/scripts/js/jquery.min.js"></script>
+    <script src="/scripts/js/browser.min.js"></script>
+    <script src="/scripts/js/breakpoints.min.js"></script>
+    <script src="/scripts/js/util.js"></script>
+	<script src="/scripts/js/main.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" integrity="sha512-q583ppKrCRc7N5O0n2nzUiJ+suUv7Et1JGels4bXOaMFQcamPk9HjdUknZuuFjBNs7tsMuadge5k9RzdmO+1GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script> 
+        window.addEventListener('beforeunload', function () {
+            sessionStorage.setItem('scrollPosition', window.scrollY);
+        }); 
+        window.addEventListener('DOMContentLoaded', function () {
+            var scrollPosition = sessionStorage.getItem('scrollPosition');
+            if (scrollPosition) {
+                window.scrollTo(0, parseInt(scrollPosition));
+            }
+        });
+    </script>
+
+
+
+</body>
+</html> 

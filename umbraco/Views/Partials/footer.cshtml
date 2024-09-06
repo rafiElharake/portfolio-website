@@ -1,0 +1,20 @@
+﻿@inherits UmbracoViewPage
+@{
+    var siteSettings = Model.GetSiteSettings();
+    if (siteSettings is null) return;
+}
+<style>
+    .footer-content {
+        display: flex;
+        background-color: #f6f6f6;
+    }
+</style>
+<footer id="footer">
+    <div class="footer-content">
+        @await Html.GetBlockGridHtmlAsync(siteSettings, "footerContent")
+    </div><ul class="copyright">
+        @Umbraco.GetDictionaryValue("CopyrightStatement", "hi"), @DateTime.Now.Year
+        Design:
+        <a href="http://html5up.net">HTML5 UP</a>
+    </ul>
+</footer>

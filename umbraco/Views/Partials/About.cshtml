@@ -1,0 +1,6 @@
+﻿@inherits UmbracoViewPage
+@{
+    var home = Model.GetHome();
+    if (home is null) return;
+}
+@await Html.GetBlockGridHtmlAsync(home, "mainContent")

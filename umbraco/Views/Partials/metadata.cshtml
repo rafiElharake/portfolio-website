@@ -1,0 +1,6 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ISEoproperties>
+<title>@Umbraco.AssignedContentItem.GetMetaTitleOrName(Model.MetaTitle) | @(Umbraco.AssignedContentItem.GetSiteName())</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<meta name="robots" content="@(Model.IsFollowable ? "FOLLOW," : "NOFOLLOW,")@(Model.IsIndexable ? "INDEX" : "NOINDEX")" />
+<link rel="stylesheet" href="/css/main.css" asp-append-version="true" />
