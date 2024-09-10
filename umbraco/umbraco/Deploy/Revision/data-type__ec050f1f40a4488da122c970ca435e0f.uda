@@ -1,0 +1,189 @@
+{
+  "Name": "[BlockGrid] - Main Content",
+  "Alias": "",
+  "EditorAlias": "Umbraco.BlockGrid",
+  "Configuration": {
+    "blocks": [
+      {
+        "columnSpanOptions": [
+          {
+            "columnSpan": 4
+          },
+          {
+            "columnSpan": 6
+          },
+          {
+            "columnSpan": 12
+          }
+        ],
+        "rowMinSpan": 1,
+        "rowMaxSpan": 1,
+        "allowAtRoot": true,
+        "allowInAreas": true,
+        "areas": [],
+        "contentElementTypeKey": "83ebf468-ab60-4c5e-afb0-3d6a54052688",
+        "view": "~/App_Plugins/Umbraco.Community.BlockPreview/views/block-preview.html",
+        "stylesheet": "~/assets/css/main.css",
+        "label": "",
+        "editorSize": "medium",
+        "inlineEditing": false,
+        "forceHideContentEditorInOverlay": false
+      },
+      {
+        "columnSpanOptions": [
+          {
+            "columnSpan": 4
+          },
+          {
+            "columnSpan": 6
+          }
+        ],
+        "rowMinSpan": 1,
+        "rowMaxSpan": 1,
+        "allowAtRoot": false,
+        "allowInAreas": true,
+        "areas": [],
+        "contentElementTypeKey": "ad1c7934-374d-4298-8c34-1197a05672fa",
+        "view": "~/App_Plugins/BlockGridPreviews/ImageLink.html",
+        "stylesheet": "~/assets/css/fontawesome-all.min.css",
+        "label": "",
+        "editorSize": "medium",
+        "inlineEditing": false,
+        "forceHideContentEditorInOverlay": false
+      },
+      {
+        "columnSpanOptions": [],
+        "rowMinSpan": 1,
+        "rowMaxSpan": 1,
+        "allowAtRoot": true,
+        "allowInAreas": true,
+        "areas": [
+          {
+            "key": "e2122163-198c-485e-9942-bc404d981c51",
+            "alias": "title",
+            "createLabel": "Add Title",
+            "columnSpan": 12,
+            "rowSpan": 1,
+            "minAllowed": 0,
+            "specifiedAllowance": []
+          },
+          {
+            "key": "612f8f48-81a3-481c-81dd-f1bc5adf1249",
+            "alias": "image-links",
+            "createLabel": "Add Image Links",
+            "columnSpan": 12,
+            "rowSpan": 1,
+            "minAllowed": 0,
+            "specifiedAllowance": [
+              {
+                "elementTypeKey": "ad1c7934-374d-4298-8c34-1197a05672fa"
+              }
+            ]
+          }
+        ],
+        "contentElementTypeKey": "d5b50578-2a9f-4a6c-acdd-002c7d795a0f",
+        "label": "",
+        "editorSize": "medium",
+        "inlineEditing": false,
+        "forceHideContentEditorInOverlay": false
+      },
+      {
+        "columnSpanOptions": [],
+        "rowMinSpan": 1,
+        "rowMaxSpan": 1,
+        "allowAtRoot": false,
+        "allowInAreas": true,
+        "areas": [],
+        "contentElementTypeKey": "f257084b-edc2-40b2-bd5d-f20849726027",
+        "view": "~/App_Plugins/BlockGridPreviews/Titlee.html",
+        "stylesheet": "~/assets/css/main.css",
+        "label": "",
+        "editorSize": "medium",
+        "inlineEditing": false,
+        "forceHideContentEditorInOverlay": false
+      },
+      {
+        "columnSpanOptions": [
+          {
+            "columnSpan": 3
+          },
+          {
+            "columnSpan": 4
+          },
+          {
+            "columnSpan": 6
+          }
+        ],
+        "rowMinSpan": 1,
+        "rowMaxSpan": 1,
+        "allowAtRoot": true,
+        "allowInAreas": true,
+        "areas": [],
+        "contentElementTypeKey": "97411dfd-9159-46fd-a59b-93643301c1e3",
+        "view": "~/App_Plugins/BlockGridPreviews/Linksb.html",
+        "stylesheet": "~/css/main.css",
+        "label": "",
+        "editorSize": "medium",
+        "inlineEditing": false,
+        "forceHideContentEditorInOverlay": false
+      },
+      {
+        "columnSpanOptions": [],
+        "rowMinSpan": 1,
+        "rowMaxSpan": 1,
+        "allowAtRoot": true,
+        "allowInAreas": true,
+        "areas": [
+          {
+            "key": "7d968537-d0e1-401e-9cd3-cba755cf5d68",
+            "alias": "link",
+            "columnSpan": 12,
+            "rowSpan": 1,
+            "minAllowed": 0,
+            "specifiedAllowance": [
+              {
+                "elementTypeKey": "97411dfd-9159-46fd-a59b-93643301c1e3"
+              }
+            ]
+          }
+        ],
+        "contentElementTypeKey": "7d83c716-4d0e-4d4d-98d0-46e2e63e3db8",
+        "label": "",
+        "editorSize": "medium",
+        "inlineEditing": false,
+        "forceHideContentEditorInOverlay": false
+      }
+    ],
+    "blockGroups": [],
+    "validationLimit": {},
+    "useLiveEditing": false
+  },
+  "Parent": "umb://data-type-container/9a7a8d5b0000488d8b87a656a9605b5e",
+  "Udi": "umb://data-type/ec050f1f40a4488da122c970ca435e0f",
+  "Dependencies": [
+    {
+      "Udi": "umb://data-type-container/9a7a8d5b0000488d8b87a656a9605b5e",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/7d83c7164d0e4d4d98d046e2e63e3db8"
+    },
+    {
+      "Udi": "umb://document-type/83ebf468ab604c5eafb03d6a54052688"
+    },
+    {
+      "Udi": "umb://document-type/97411dfd915946fda59b93643301c1e3"
+    },
+    {
+      "Udi": "umb://document-type/ad1c7934374d42988c341197a05672fa"
+    },
+    {
+      "Udi": "umb://document-type/d5b505782a9f4a6cacdd002c7d795a0f"
+    },
+    {
+      "Udi": "umb://document-type/f257084bedc240b2bd5df20849726027"
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.DataTypeArtifact",
+  "__version": "13.2.0"
+}

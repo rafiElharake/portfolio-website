@@ -1,7 +1,20 @@
-using Slimsy.DependencyInjection;
-
+using System.Data; 
+using Microsoft.EntityFrameworkCore; 
+using Slimsy.DependencyInjection; 
+using umbraco;
 using umbraco.Configuration;
+using System.Data.SQLite;
+using Microsoft.Data.Sqlite;
+using umbraco.Services;
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddScoped<IEmailMessageService, EmailMessageService>();
+
+// Register the IDbConnection with the appropriate SQLite connection
+builder.Services.AddScoped<IDbConnection>(sp =>
+{
+    return new SqliteConnection("Data Source=Umbraco.sqlite.db");
+});
 
 builder.CreateUmbracoBuilder()
     .AddBackOffice()

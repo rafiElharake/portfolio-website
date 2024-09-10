@@ -1,9 +1,9 @@
-﻿using umbraco.Configuration;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options; 
+using umbraco.Configuration;
+using umbraco.Models;
 using umbraco.Models.ViewModels;
-
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
-
+using umbraco.Services; 
 using Umbraco.Cms.Core.Cache;
 using Umbraco.Cms.Core.Logging;
 using Umbraco.Cms.Core.Mail;
@@ -21,7 +21,7 @@ public class ContactSurfaceController : SurfaceController
     private readonly IEmailSender _emailSender;
     private readonly ILogger<ContactSurfaceController> _logger;
     private readonly umbracoConfig _umbracoConfig;
-
+    private readonly IEmailMessageService _emailMessageService;
     public ContactSurfaceController(
         IUmbracoContextAccessor umbracoContextAccessor,
         IUmbracoDatabaseFactory databaseFactory,
@@ -31,11 +31,13 @@ public class ContactSurfaceController : SurfaceController
         IPublishedUrlProvider publishedUrlProvider,
         IEmailSender emailSender,
         ILogger<ContactSurfaceController> logger,
-        IOptions<umbracoConfig> umbracoConfig) : base(umbracoContextAccessor, databaseFactory, services, appCaches, profilingLogger, publishedUrlProvider)
+        IOptions<umbracoConfig> umbracoConfig,
+        IEmailMessageService emailMessageService) : base(umbracoContextAccessor, databaseFactory, services, appCaches, profilingLogger, publishedUrlProvider)
     {
         _emailSender = emailSender;
         _logger = logger;
         _umbracoConfig = umbracoConfig.Value;
+        _emailMessageService = emailMessageService;
     }
     public async Task<IActionResult> Submit(ContactViewModel model)
     {
@@ -55,7 +57,15 @@ public class ContactSurfaceController : SurfaceController
             EmailMessage message2 = new(toAddress,fromAddress , subject, returnmessage, false);
             await _emailSender.SendAsync(message, emailType: "Contact");
             await _emailSender.SendAsync(message2, emailType: "Contact");
-            TempData["ContactSuccess"] = true;
+            EmailLog emailLog = new()
+            {
+                SenderEmail = fromAddress,
+                Text = model.Message,
+                SentDate = DateTime.Now
+            };
+            await _emailMessageService.SaveEmailLogAsync(emailLog); 
+            TempData["ContactSuccess"] = true; 
+
         }
         catch (Exception ex)
         {

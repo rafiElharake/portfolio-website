@@ -17,10 +17,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.1.35" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.8" />
     <PackageReference Include="Our.Umbraco.Slimsy" Version="5.1.2" />
     <PackageReference Include="Our.Umbraco.TagHelpers" Version="1.2.0" />
     <PackageReference Include="Our.Umbraco.TheDashboard" Version="13.0.1" />
     <PackageReference Include="Skybrud.Umbraco.Redirects" Version="13.0.4" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.118" />
     <PackageReference Include="Umbraco.Cms" Version="13.4.1" />
   </ItemGroup>
 
@@ -28,6 +33,8 @@
     <!-- Opt-in to app-local ICU to ensure consistent globalization APIs across different platforms -->
     <PackageReference Include="Microsoft.ICU.ICU4C.Runtime" Version="72.1.0.3" />
     <PackageReference Include="Umbraco.Community.BlockPreview" Version="1.8.4" />
+    <PackageReference Include="Umbraco.Deploy.Contrib" Version="13.2.0" />
+    <PackageReference Include="Umbraco.Deploy.OnPrem" Version="13.2.0" />
     <PackageReference Include="uSync" Version="13.2.4" />
     <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="72.1.0.3" Condition="$(RuntimeIdentifier.StartsWith('linux')) or $(RuntimeIdentifier.StartsWith('win')) or ('$(RuntimeIdentifier)' == '' and !$([MSBuild]::IsOSPlatform('osx')))" />
   </ItemGroup>

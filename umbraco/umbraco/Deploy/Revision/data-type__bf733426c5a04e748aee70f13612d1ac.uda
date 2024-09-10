@@ -1,0 +1,124 @@
+{
+  "Name": "[BlockGrid] - Footer Content",
+  "Alias": "",
+  "EditorAlias": "Umbraco.BlockGrid",
+  "Configuration": {
+    "blocks": [
+      {
+        "columnSpanOptions": [],
+        "rowMinSpan": 1,
+        "rowMaxSpan": 1,
+        "allowAtRoot": true,
+        "allowInAreas": false,
+        "areas": [
+          {
+            "key": "1cc8be96-a6a1-44de-83b1-573d1b3f7e4f",
+            "alias": "left",
+            "createLabel": "Add Footer Content",
+            "columnSpan": 8,
+            "rowSpan": 1,
+            "minAllowed": 0,
+            "maxAllowed": 1,
+            "specifiedAllowance": [
+              {
+                "elementTypeKey": "691af9b4-138e-4320-8e91-4901798f0c29"
+              }
+            ]
+          },
+          {
+            "key": "4edae439-af3d-4693-8d20-1fd08d9de8fe",
+            "alias": "right",
+            "columnSpan": 4,
+            "rowSpan": 1,
+            "minAllowed": 1,
+            "maxAllowed": 1,
+            "specifiedAllowance": [
+              {
+                "elementTypeKey": "250b8a21-7468-4f88-9acf-df54b457b4d6",
+                "minAllowed": 1,
+                "maxAllowed": 1
+              }
+            ]
+          },
+          {
+            "key": "4de1cb0a-fb81-4847-9af6-d8fcf40fef1b",
+            "alias": "",
+            "columnSpan": 6,
+            "rowSpan": 1,
+            "minAllowed": 0,
+            "specifiedAllowance": []
+          }
+        ],
+        "contentElementTypeKey": "f36cba1a-e5f8-4e36-847d-f51f2eccf127",
+        "label": "",
+        "editorSize": "medium",
+        "inlineEditing": true,
+        "forceHideContentEditorInOverlay": false,
+        "groupKey": "7b8b1639-b239-4823-bf73-6966dcfdb792"
+      },
+      {
+        "columnSpanOptions": [],
+        "rowMinSpan": 1,
+        "rowMaxSpan": 1,
+        "allowAtRoot": true,
+        "allowInAreas": true,
+        "areas": [],
+        "contentElementTypeKey": "691af9b4-138e-4320-8e91-4901798f0c29",
+        "view": "~/App_Plugins/Umbraco.Community.BlockPreview/views/block-preview.html",
+        "stylesheet": "~/css/main.css",
+        "label": "",
+        "editorSize": "medium",
+        "inlineEditing": true,
+        "forceHideContentEditorInOverlay": false,
+        "groupKey": "62c12fd1-8ae4-4712-9914-0c5ea0e9bebc"
+      },
+      {
+        "columnSpanOptions": [],
+        "rowMinSpan": 1,
+        "rowMaxSpan": 1,
+        "allowAtRoot": false,
+        "allowInAreas": true,
+        "areas": [],
+        "contentElementTypeKey": "250b8a21-7468-4f88-9acf-df54b457b4d6",
+        "view": "~/App_Plugins/Umbraco.Community.BlockPreview/views/block-preview.html",
+        "stylesheet": "~/css/main.css",
+        "label": "",
+        "editorSize": "medium",
+        "inlineEditing": false,
+        "forceHideContentEditorInOverlay": false,
+        "groupKey": "62c12fd1-8ae4-4712-9914-0c5ea0e9bebc"
+      }
+    ],
+    "blockGroups": [
+      {
+        "key": "7b8b1639-b239-4823-bf73-6966dcfdb792",
+        "name": "Layout"
+      },
+      {
+        "key": "62c12fd1-8ae4-4712-9914-0c5ea0e9bebc",
+        "name": "Modules"
+      }
+    ],
+    "validationLimit": {},
+    "useLiveEditing": false
+  },
+  "Parent": "umb://data-type-container/9a7a8d5b0000488d8b87a656a9605b5e",
+  "Udi": "umb://data-type/bf733426c5a04e748aee70f13612d1ac",
+  "Dependencies": [
+    {
+      "Udi": "umb://data-type-container/9a7a8d5b0000488d8b87a656a9605b5e",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/250b8a2174684f889acfdf54b457b4d6"
+    },
+    {
+      "Udi": "umb://document-type/691af9b4138e43208e914901798f0c29"
+    },
+    {
+      "Udi": "umb://document-type/f36cba1ae5f84e36847df51f2eccf127"
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.DataTypeArtifact",
+  "__version": "13.2.0"
+}
