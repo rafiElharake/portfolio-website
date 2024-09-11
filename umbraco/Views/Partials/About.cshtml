@@ -2,5 +2,10 @@
 @{
     var home = Model.GetHome();
     if (home is null) return;
+    var number = ViewBag.Number;
+}
+@if (!string.IsNullOrEmpty(number))
+{
+    <p>The number is: @number</p>
 }
 @await Html.GetBlockGridHtmlAsync(home, "mainContent")

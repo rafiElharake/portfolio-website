@@ -1,7 +1,7 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<Umbraco.Cms.Web.Common.PublishedModels.ImageLinks>>
 @{
     const int TITLE_AREA = 0;
-    const int CONTENT_AREA = 1;
+    const int CONTENT_AREA = 1; 
 }
 
 @await Html.GetBlockGridItemAreaHtmlAsync(Model.Areas.ElementAt(TITLE_AREA))

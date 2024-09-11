@@ -35,7 +35,11 @@ public class SearchService : ISearchService
         {
             query = query.And().Group(q => q.GroupedOr(["metaTitle"], terms.Boost(80))
             .Or()
-            .GroupedOr(["nodeName"], terms.Boost(700))
+            .GroupedOr(["nodeName"], terms.Boost(70))
+            .Or()
+            .GroupedOr(["mainContent"], terms.Boost(70))
+            .Or()
+            .GroupedOr(["headerContent"], terms.Boost(70))
             .Or()
             .GroupedOr(["metaTitle"], terms.Fuzzy())
             .Or()

@@ -2,8 +2,17 @@
 @inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<Umbraco.Cms.Web.Common.PublishedModels.ImageLink>>
 
 @{
-    if (Model?.Content?.Image  == null || Model?.Content?.Link == null) return;
+    if (Model?.Content?.Image == null || Model?.Content?.Link == null) return;
 }
+@model dynamic
+@{
+    var number = ViewData["Number"] as string;
+}
+@if(number!=null){
+ @if(Int32.Parse(number)!=@Model.Content.Index){
+    return;
+}}
+
 <article class="style1">
     <span class="image">
         <img class="img-fluid lazyload" data-srcset="@Url.GetSrcSetUrls(Model.Content.Image, 400, 290)" src="@Model.Content.Image.GetCropUrl(40, 29, quality: 40)" alt="@Model.Content.Image.GetAltText()" width="400" height="290" sizes="auto" />
@@ -11,7 +20,13 @@
     <a href="@Model.Content.Link.Url" target="@Model.Content.Link.Target" title="@Model.Content.Link.Name">
         <h2>@Model.Content.Label</h2>
         <div class="content">
-            <p>@Model.Content.Description</p>
         </div>
     </a>
 </article>
+@if(number!=null){
+@if (Int32.Parse(number) != 0)
+{
+    <div style="margin:5%; width:50%;">
+<p>@Model.Content.Description </p><br />
+            <a href ="@Model.Content.Link.Url" target="@Model.Content.Link.Target">@Model.Content.Link.Url</a>
+</div>}}

@@ -22,6 +22,8 @@ public class ContactSurfaceController : SurfaceController
     private readonly ILogger<ContactSurfaceController> _logger;
     private readonly umbracoConfig _umbracoConfig;
     private readonly IEmailMessageService _emailMessageService;
+    private readonly IContentService _contentService;
+
     public ContactSurfaceController(
         IUmbracoContextAccessor umbracoContextAccessor,
         IUmbracoDatabaseFactory databaseFactory,
@@ -32,12 +34,15 @@ public class ContactSurfaceController : SurfaceController
         IEmailSender emailSender,
         ILogger<ContactSurfaceController> logger,
         IOptions<umbracoConfig> umbracoConfig,
-        IEmailMessageService emailMessageService) : base(umbracoContextAccessor, databaseFactory, services, appCaches, profilingLogger, publishedUrlProvider)
+        IEmailMessageService emailMessageService,
+        IContentService contentService) : base(umbracoContextAccessor, databaseFactory, services, appCaches, profilingLogger, publishedUrlProvider)
     {
         _emailSender = emailSender;
         _logger = logger;
         _umbracoConfig = umbracoConfig.Value;
         _emailMessageService = emailMessageService;
+        _contentService = contentService;
+
     }
     public async Task<IActionResult> Submit(ContactViewModel model)
     {
@@ -64,6 +69,10 @@ public class ContactSurfaceController : SurfaceController
                 SentDate = DateTime.Now
             };
             await _emailMessageService.SaveEmailLogAsync(emailLog); 
+            var parentId = 1134;  
+            var content = _contentService.Create("Email from " + model.Email, parentId, "emails");
+            content.SetValue("text", model.Message);
+            _contentService.SaveAndPublish(content);
             TempData["ContactSuccess"] = true; 
 
         }
@@ -76,3 +85,4 @@ public class ContactSurfaceController : SurfaceController
         return RedirectToCurrentUmbracoPage();
     }
 }
+

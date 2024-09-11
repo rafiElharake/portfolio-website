@@ -33,7 +33,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		/// <summary>Meta Description</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		string MetaDiscription { get; }
+		string MetaDescription { get; }
 
 		/// <summary>Meta Title</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
@@ -99,13 +99,13 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("metaDiscription")]
-		public virtual string MetaDiscription => GetMetaDiscription(this, _publishedValueFallback);
+		[ImplementPropertyType("metaDescription")]
+		public virtual string MetaDescription => GetMetaDescription(this, _publishedValueFallback);
 
 		/// <summary>Static getter for Meta Description</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetMetaDiscription(ISEoproperties that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "metaDiscription");
+		public static string GetMetaDescription(ISEoproperties that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "metaDescription");
 
 		///<summary>
 		/// Meta Title

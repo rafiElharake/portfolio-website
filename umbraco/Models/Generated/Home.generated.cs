@@ -84,8 +84,8 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("metaDiscription")]
-		public virtual string MetaDiscription => global::Umbraco.Cms.Web.Common.PublishedModels.SEoproperties.GetMetaDiscription(this, _publishedValueFallback);
+		[ImplementPropertyType("metaDescription")]
+		public virtual string MetaDescription => global::Umbraco.Cms.Web.Common.PublishedModels.SEoproperties.GetMetaDescription(this, _publishedValueFallback);
 
 		///<summary>
 		/// Meta Title

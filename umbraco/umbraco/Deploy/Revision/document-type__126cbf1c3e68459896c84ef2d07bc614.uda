@@ -1,0 +1,44 @@
+{
+  "Name": "Emails",
+  "Alias": "emails",
+  "AllowedTemplates": [],
+  "HistoryCleanup": {},
+  "Icon": "icon-item-arrangement",
+  "Thumbnail": "folder.png",
+  "Permissions": {
+    "AllowedAtRoot": true,
+    "AllowedChildContentTypes": []
+  },
+  "Parent": "umb://document-type-container/82a9565344224dd9adc4a931080227c9",
+  "CompositionContentTypes": [],
+  "PropertyGroups": [
+    {
+      "Key": "50b53c2f-9913-41d0-8793-982ed2027353",
+      "Name": "Content",
+      "Type": 1,
+      "Alias": "content",
+      "PropertyTypes": [
+        {
+          "Key": "848a5475-f527-4bf4-b5cf-552ba49b1f66",
+          "Alias": "text",
+          "DataType": "umb://data-type/c6bac0dd4ab945b18e30e4b619ee5da3",
+          "Name": "Text"
+        }
+      ]
+    }
+  ],
+  "PropertyTypes": [],
+  "Udi": "umb://document-type/126cbf1c3e68459896c84ef2d07bc614",
+  "Dependencies": [
+    {
+      "Udi": "umb://data-type/c6bac0dd4ab945b18e30e4b619ee5da3",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type-container/82a9565344224dd9adc4a931080227c9",
+      "Ordering": true
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.ContentType.DocumentTypeArtifact",
+  "__version": "13.2.0"
+}
